@@ -1,0 +1,282 @@
+<!--index.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1e1b4b">
+    <meta name="color-scheme" content="light dark">
+    <meta name="forced-colors" content="none">
+    <title>ShuxOrinn - iOS Certificate Expert</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <!-- Lock Screen -->
+    <div id="lock-screen" class="lock-screen">
+        <!-- PC/MacBook Lock Screen -->
+        <div class="pc-lock-screen">
+            <video id="background-video-pc" class="background-video" autoplay muted loop playsinline>
+                <source src="video/pc.mp4" type="video/mp4">
+            </video>
+            <div class="mac-lock-content">
+                <div class="mac-menu">
+                    <div class="menu-item"><i class="fas fa-wifi"></i></div>
+                    <div class="menu-item"><i class="fas fa-user-alt"></i></div>
+                    <div class="menu-item"><i class="fas fa-power-off"></i></div>
+                </div>
+                <div class="mac-clock">
+                    <div class="time" id="mac-time"></div>
+                    <div class="date" id="mac-date"></div>
+                </div>
+                <div class="mac-user">
+                    <div class="mac-avatar-wrapper">
+                        <div class="mac-avatar">
+                            <img src="https://static.wixstatic.com/media/9d8ed5_b8fcc13f08fc4374bb1f979e032b0eb7~mv2.jpg" alt="User">
+                        </div>
+                    </div>
+                    <div class="mac-username">ShuxOrinn</div>
+                    <div class="mac-hint">Enter password</div>
+                    <button class="mac-signin">
+                        <span class="signin-arrow">›</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile/iPhone Lock Screen -->
+        <div class="mobile-lock-screen">
+            <video id="background-video-mobile" class="background-video" autoplay muted loop playsinline>
+                <source src="video/mb.mp4" type="video/mp4">
+            </video>
+            <div class="background-clock">
+                <div class="clock-time" id="background-time"></div>
+                <div class="clock-date" id="background-date"></div>
+            </div>
+            <div class="iphone-lock-content">
+                <div class="iphone-status-bar">
+                    <div class="status-left">
+                        <div class="time" id="iphone-time"></div>
+                    </div>
+                    <div class="dynamic-island">
+                        <div class="island-content">
+                            <div class="island-camera"></div>
+                            <div class="island-sensor"></div>
+                        </div>
+                    </div>
+                    <div class="status-right">
+                        <div class="signal-icon">
+                            <span></span><span></span><span></span><span></span>
+                        </div>
+                        <div class="wifi-icon">
+                            <i class="fas fa-wifi"></i>
+                        </div>
+                        <div class="battery-icon">
+                            <div class="battery-level"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="iphone-widgets">
+                    <div class="widget weather">
+                        <div class="widget-content">
+                            <i class="fas fa-cloud-sun" id="weather-icon"></i>
+                            <div class="weather-info">
+                                <span class="temp" id="current-temp">Đang tải...</span>
+                                <span class="condition" id="weather-condition">Đang tải...</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget notification">
+                        <div class="widget-content">
+                            <img src="https://img.icons8.com/?size=100&id=ZdtiMuVlxCyi&format=png&color=000000" alt="Messenger" class="messenger-icon">
+                            <div class="notification-content">
+                                <div class="notification-header">
+                                    <span class="notification-title">Your Brother</span>
+                                    <span class="notification-time">bây giờ</span>
+                                </div>
+                                <div class="notification-body" style="text-align: left; padding-left: 0; margin-left: 0; text-indent: 0;">dạo này ổn không </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget music">
+                        <div class="widget-content">
+                            <i class="fas fa-music"></i>
+                            <div class="music-info">
+                                <span class="song">Currently Playing</span>
+                                <span class="artist">ShuxOrinn's Playlist</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="iphone-bottom">
+                    <button class="action-button flashlight">
+                        <div class="button-bg"></div>
+                        <i class="fas fa-flashlight"></i>
+                    </button>
+                    <div class="swipe-text">
+                        <span>Swipe up to unlock</span>
+                    </div>
+                    <button class="action-button camera">
+                        <div class="button-bg"></div>
+                        <i class="fas fa-camera"></i>
+                    </button>
+                </div>
+                <div class="bottom-indicator"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Background Decoration -->
+        <div class="background-decoration">
+            <div class="circle circle1"></div>
+            <div class="circle circle2"></div>
+            <div class="circle circle3"></div>
+            <div class="square square1"></div>
+            <div class="square square2"></div>
+        </div>
+
+        <!-- Container and rest of the content -->
+        <div class="container" id="container">
+            <!-- Hamburger Menu Icon -->
+            <div class="hamburger-icon">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <!-- Dark Mode Toggle Switch -->
+            <div class="theme-toggle-container">
+                <input type="checkbox" id="theme-toggle" class="theme-toggle-checkbox">
+                <label for="theme-toggle" class="theme-toggle-label">
+                    <span class="theme-toggle-inner"></span>
+                    <span class="theme-toggle-moon"><i class="fas fa-moon"></i></span>
+                    <span class="theme-toggle-sun"><i class="fas fa-sun"></i></span>
+                </label>
+            </div>
+            <!-- Vietcombank Info Popup -->
+            <div class="vcb-popup">
+                <div class="vcb-popup-content">
+                    <div class="vcb-logo">
+                        <i class="fas fa-university"></i>
+                        <span>Vietcombank</span>
+                    </div>
+                    <div class="vcb-account">
+                        <div class="account-number">1051237658</div>
+                        <div class="account-label">Vietcombank Account Number</div>
+                    </div>
+                    <div class="vcb-qr">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAABlBMVEX///8AAABVwtN+AAACHklEQVR4nO3dUY6DMAwFwRxl7n/lRbvaSlHcGCYy71dR1BEYQlKWBQAAAAAAAAAAAAAAAAAAAC7weBqOt/lq7oPX3Iev+Qxf8+f7QldP93TUfG9atTV+bRRc93Xvj/c/9JXwNfd+e/LYVmx+1nfOQs3FiZNYpGRN9ZaOjt5L3QdN2Ek/1ZNZS3S0pGJPBRVLZsQjbhqTdJGQqFE5oYY5UXkUJCSUR4Zyok2kL8uiREuuTBY82W5EjUJCkUCIxoSXFrQNH+7PpL+Tz+a9Wqpl9QUFw1MxbIsWLNa8pMUdFS2omHtZlKj8cCqKVqwdyQttgxWrhmvBitUlLVixOXr9X0X9l8vKT/ctjUbBl8vKMwtWbH6h6W8xBeMKbXZZVy0IUb3VVldWVGxuKagYr5irWPCr6nVnPa77y8pCULB5W81HQcWsgoqPRMX6Q8sqqqDi2UvUy6rnXBWEqKDi6c8qO50Vzx7unS6EqGJ6lVAsWzfZ/LqKgnuLdkFBQcWagtmKW09vhdp9bXNBwXVrTChmFS2oWFUwe2Kz96VoQcWsJdkFC0K0omLnZWXBbPfOXbHoZSWi+dGZVzR7mHCyomLR6RztVVTPTe0tnz09HCwoqKhYU7DgGfLBgoJXiIKKN6KOBQvuCu9FT1Ys2AXnCta8hR0sKJiN9tZXVNy7jW1JsYLFIQIAAAAAAAAAAAAAAAAAAABckv83/KFKf+acGQAAAABJRU5ErkJggg==" alt="Vietcombank QR">
+                    </div>
+                </div>
+            </div>
+            
+            <header>
+                <div class="header-flex">
+                    <div class="avatar-container">
+                        <div class="avatar-frame">
+                            <img src="https://static.wixstatic.com/media/9d8ed5_b8fcc13f08fc4374bb1f979e032b0eb7~mv2.jpg/v1/fill/w_600,h_567,al_c,q_80,enc_avif,quality_auto/9d8ed5_b8fcc13f08fc4374bb1f979e032b0eb7~mv2.jpg" alt="Avatar" class="avatar">
+                        </div>
+                    </div>
+                </div>
+                <h1 data-text="ShuxOrinn">ShuxOrinn
+        <img src="checkmark.png" alt="Verified" style="width: 25px; height: 25px; margin-left: -5px;">
+    </h1>
+                <p class="tagline">iOS Certificate Expert & Creative Developer</p>
+            </header>
+
+            <section class="intro">
+                <p>Hello! I am ShuxOrinn, an expert in iOS certificates and application development. I provide fast and reliable iOS certificate services through ChungChi24h.com.</p>
+                <div class="typing-container">
+                    <p>I can help you: <span class="typing"></span></p>
+                </div>
+            </section>
+            
+            <!-- IP Info Section -->
+            <section class="ip-info-section">
+                <h2><i class="fas fa-network-wired"></i> Your IP Information</h2>
+                <div class="ip-info-container">
+                    <div class="ip-info-loading">Loading IP information...</div>
+                </div>
+            </section>
+
+            <section class="features">
+                <h2>Featured Services</h2>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <i class="fas fa-certificate feature-icon pulse"></i>
+                        <h3>iOS Certificates</h3>
+                        <p>Premium iOS certificates with 24-hour delivery guarantee</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-mobile-alt feature-icon bounce"></i>
+                        <h3>App Development</h3>
+                        <p>Professional iOS app development and consultation</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-headset feature-icon shake"></i>
+                        <h3>24/7 Support</h3>
+                        <p>Round-the-clock technical support and assistance</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="testimonials">
+                <h2>Biography</h2>
+                <div class="testimonial-container">
+                    <div class="testimonial">
+                        <p>"Meet ShuxOrinn, an iOS certificate expert with a passion for creating seamless mobile experiences. With years of experience and dedication to quality service, I've helped countless developers bring their apps to life on the iOS platform."</p>
+                        <span>- About Me -</span>
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                <div class="contact-info">
+                    <a href="tel:+84967365936" class="contact-link phone-link">
+                        <i class="fas fa-phone"></i>
+                        <span>096 736 5936</span>
+                    </a>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="https://t.me/ShuxOrinn" class="social-link"><i class="fab fa-telegram"></i> Telegram</a>
+                    <a href="https://chungchi24h.com" class="social-link"><i class="fas fa-globe"></i> ChungChi24h.com</a>
+                </div>
+                <p class="copyright">© 2023 ShuxOrinn. All rights reserved.</p>
+            </footer>
+        </div>
+    </div>
+    
+    <!-- Floating Icons -->
+    <div class="floating-icons">
+        <i class="fab fa-apple"></i>
+        <i class="fas fa-mobile-alt"></i>
+        <i class="fas fa-code"></i>
+        <i class="fas fa-cog"></i>
+        <i class="fas fa-rocket"></i>
+        <i class="fas fa-shield-alt"></i>
+        <i class="fas fa-bolt"></i>
+        <i class="fas fa-wifi"></i>
+        <i class="fas fa-cloud"></i>
+        <i class="fas fa-hashtag"></i>
+        <i class="fas fa-key"></i>
+        <i class="fas fa-bell"></i>
+        <i class="fas fa-bookmark"></i>
+        <i class="fas fa-bug"></i>
+        <i class="fas fa-camera"></i>
+        <i class="fas fa-chart-line"></i>
+        <i class="fas fa-crown"></i>
+        <i class="fas fa-database"></i>
+        <i class="fas fa-download"></i>
+        <i class="fas fa-heart"></i>
+    </div>
+
+    <!-- Scripts -->
+    <script src="./script.js"></script>
+    <script src="./weather.js"></script>
+</body>
+</html>
